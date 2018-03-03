@@ -27,4 +27,17 @@ app.controller('ctrl_todo', function ($scope) {
         // store latest changes to local storage.
         localStorage.setItem("list", JSON.stringify($scope.todo_list));
     };
+
+    $scope.select_all = function () {
+        angular.forEach($scope.todo_list, function (x) {
+            x.done = true;
+        });
+    };
+
+    $scope.select_none = function () {
+        angular.forEach($scope.todo_list, function (x) {
+            x.done = false;
+        });
+    };
+
 });
